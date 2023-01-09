@@ -30,3 +30,4 @@ packages/tauri/src-tauri/icons
 packages/tauri/tauri-update.json
 .flatpak-builder
 packages/admin/dist
+.DS_STORE
