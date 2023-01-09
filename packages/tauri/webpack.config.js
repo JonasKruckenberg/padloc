@@ -40,6 +40,17 @@ module.exports = {
                 use: ["style-loader", "css-loader"],
             },
             {
+                test: /(Nunito|SpaceMono)-\d+.woff2$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            emitFile: false,
+                        },
+                    },
+                ],
+            },
+            {
                 test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
                 use: ["file-loader"],
             },
