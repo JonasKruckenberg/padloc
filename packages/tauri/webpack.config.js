@@ -20,7 +20,7 @@ module.exports = {
         chunkFilename: "[name].chunk.js",
         publicPath: "/",
     },
-    mode: "development",
+    mode:  process.env.TAURI_DEBUG ? "development" : "production",
     devtool: "source-map",
     stats: "minimal",
     resolve: {
@@ -71,10 +71,10 @@ module.exports = {
                 },
             },
         }),
-        // NOTE: Right now, tauri will try to add `const __TAURI_INVOKE_KEY__ = randomNumber` to every generated JS file, which causes problems if there are chunks
-        new optimize.LimitChunkCountPlugin({
-            maxChunks: 1,
-        }),
+        // // NOTE: Right now, tauri will try to add `const __TAURI_INVOKE_KEY__ = randomNumber` to every generated JS file, which causes problems if there are chunks
+        // new optimize.LimitChunkCountPlugin({
+        //     maxChunks: 1,
+        // }),
     ],
     devServer: {
         historyApiFallback: true,
